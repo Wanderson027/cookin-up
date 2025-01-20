@@ -24,7 +24,7 @@ export default {
       </span>
       <ul v-if="listaIngredientes.length" class="ingredientes-sua-lista">
         <li v-for="ingrediente in listaIngredientes" :key="ingrediente">
-          <Tag :texto="ingrediente" />
+          <Tag :texto="ingrediente" ativa />
         </li>
       </ul>
       <p v-else class="paragrafo lista-vazia">
