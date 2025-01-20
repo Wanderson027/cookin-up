@@ -1,6 +1,7 @@
 <script lang="ts">
 import { obterCategorias } from '@/http';
 import type ICategoria from '@/interfaces/ICategoria';
+import cardCategoria from './cardCategoria.vue';
 
 export default {
     data () {
@@ -10,7 +11,10 @@ export default {
     },
    async created () {
        this.categorias = await obterCategorias()
-    }
+    },
+    components: {
+      cardCategoria
+    },
 }
 </script>
 <template>
@@ -19,7 +23,7 @@ export default {
         <p class="paragrafo-lg instrucoes"> Selecione abaixo os ingredientes que você quer usar nesta Receita: </p>
         <ul class="categorias">
             <li v-for="categoria in categorias" :key="categoria.nome">
-                {{ categoria.nome }}
+                <cardCategoria :categoria="categoria"/>
             </li>
         </ul>
         <p class="paragrafo dicas">
