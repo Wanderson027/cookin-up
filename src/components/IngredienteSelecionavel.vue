@@ -19,7 +19,7 @@ export default {
 <template>
     <button
     class="ingrediente"
-    v-on:click="selecionado = !selecionado"
+    @:click="selecionado = !selecionado"
     >
         <Tag :texto="ingrediente" :ativa="selecionado" />
     </button>
@@ -27,6 +27,6 @@ export default {
 <style scoped>
 .ingrediente {
     cursor: pointer;
-    
+
 }
 </style>
