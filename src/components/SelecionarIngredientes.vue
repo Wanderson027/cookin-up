@@ -15,6 +15,7 @@ export default {
     components: {
       cardCategoria
     },
+    emits: ['adicionarIngrediente']
 }
 </script>
 <template>
@@ -23,7 +24,9 @@ export default {
         <p class="paragrafo-lg instrucoes"> Selecione abaixo os ingredientes que você quer usar nesta Receita: </p>
         <ul class="categorias">
             <li v-for="categoria in categorias" :key="categoria.nome">
-                <cardCategoria :categoria="categoria"/>
+                <cardCategoria :categoria="categoria"
+                @adicionar-ingrediente="$emit('adicionarIngrediente', $event)"
+                />
             </li>
         </ul>
         <p class="paragrafo dicas">
